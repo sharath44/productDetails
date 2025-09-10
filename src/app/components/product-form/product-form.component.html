@@ -1,0 +1,31 @@
+<mat-card>
+    <form (ngSubmit)="submit()" #form="ngForm">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Product Name</mat-label>
+        <input matInput [(ngModel)]="product.product_name" name="name" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Brand</mat-label>
+        <input matInput [(ngModel)]="product.brand" name="brand" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" [(ngModel)]="product.price" name="price" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Category</mat-label>
+        <input matInput [(ngModel)]="product.category" name="category" required />
+      </mat-form-field>
+  
+      <mat-checkbox [(ngModel)]="product.in_stock" name="stock">In Stock</mat-checkbox>
+  
+      <div style="margin-top: 20px;">
+        <button mat-raised-button color="primary" type="submit">Save</button>
+        <button mat-button (click)="router.navigate(['/'])">Cancel</button>
+      </div>
+    </form>
+  </mat-card>
+  

@@ -1,0 +1,118 @@
+<div style="display: flex; flex-direction: column; align-items: center; gap: 50px; padding: 50px;">
+<div>
+    <!-- [formControl]="searchTerm"  -->
+    <mat-form-field appearance="outline" style="width: 300px;">
+        <mat-label>Search Product</mat-label>
+        <input matInput [(ngModel)]="searchTerm" placeholder="Enter product name" />
+      </mat-form-field>
+      <span style="margin-left: 10px;">
+        <button mat-raised-button  color="primary" (click)="searchProduct()">Search</button>
+
+      </span>
+      </div>
+      <ng-container *ngIf="product; else noProduct">
+        <mat-card style="width: 400px; padding: 20px;">
+          <mat-card-title>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span>{{ product.product_name }}</span>
+              <span>
+                <button mat-icon-button color="accent" (click)="editProduct()">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteProduct()">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </span>
+            </div>
+          </mat-card-title>
+      
+          <mat-card-content>
+            <p><strong>Brand: </strong> &nbsp; &nbsp;{{ product.brand }}</p>
+            <p><strong>Price: </strong>  &nbsp; &nbsp; ₹{{ product.price }}</p>
+            <p><strong>Category: </strong>  &nbsp; &nbsp; {{ product.category }}</p>
+            <p><strong>Status: </strong>  &nbsp; &nbsp; {{ product.in_stock ? 'In Stock' : 'Out of Stock' }}</p>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+      
+      <ng-template #noProduct>
+        <mat-card style="width: 400px; padding: 20px; text-align: center;">
+          <mat-card-title>No products found</mat-card-title>
+          <mat-card-content>
+            <p>Please add products</p>
+            <!-- <button mat-raised-button color="primary" (click)="addProduct()">Add Product</button> -->
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+
+
+<div style="display: flex; justify-content: space-between; width: 200px;">
+    <button mat-button [disabled]="prevDisabled" (click)="prev()">Previous</button>
+    <button mat-button [disabled]="nextDisabled" (click)="next()">Next</button>
+  </div>
+  <div style="display: flex; gap: 10px;">
+    <button mat-raised-button color="primary" (click)="addProduct()">Add Product</button>
+    <!-- <button mat-raised-button color="warn" (click)="deleteProduct()">Delete</button>
+    <button mat-raised-button color="accent" (click)="editProduct()">Edit</button> -->
+  </div>
+
+<!-- 
+  <div>
+    <h1>GeeksforGeeks</h1>
+    <h3>Angular Material Icons</h3>
+    <mat-icon>
+        edit
+    </mat-icon>
+        <span>Edit</span><br>
+    <mat-icon>
+        delete
+    </mat-icon>
+        <span>Delete Icon</span><br>
+    <mat-icon>
+        calendar_today
+    </mat-icon>
+        <span>Calender Icon</span><br>
+    <mat-icon>
+        card_giftcard
+    </mat-icon>
+        <span>Giftcard Icon</span><br>
+    <mat-icon>
+        copyright
+    </mat-icon>
+        <span>Copyright Icon</span><br>
+    <mat-icon>
+        done
+    </mat-icon>
+        <span>Done Icon</span><br>
+    <mat-icon>
+        extension
+    </mat-icon>
+        <span>Extension Icon</span><br>
+    <mat-icon>
+        favorite
+    </mat-icon>
+        <span>Favorite Icon</span><br>
+    <mat-icon>
+        g_translate
+    </mat-icon><span>Google Translate Icon</span><br>
+    <mat-icon>
+        history
+    </mat-icon>
+        <span>History Icon</span><br>
+</div> -->
+
+
+<!-- 
+<div *ngFor="let item of results">
+  <ng-container *ngIf="item.result; else errorBlock">
+    <mat-card>{{ item.result.product_name }}</mat-card>
+  </ng-container>
+  <ng-template #errorBlock>
+    <mat-card color="warn">Product {{ item.input }} failed to load</mat-card>
+  </ng-template>
+</div> -->
+
+
+</div>
+  
+  
