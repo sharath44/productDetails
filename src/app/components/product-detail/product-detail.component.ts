@@ -78,6 +78,8 @@ export class ProductDetailComponent implements OnInit {
     //     console.log(`Product ${tagged.input} loaded:`, tagged.result);
     //   }
     // });
+
+    //saisharath
 let count: number[] = [1,2,3,4];
 console.log("start ==>")
    // from(count).pipe(map((each)=>{return each*2}),delay(1000),map((each)=> each+1)).subscribe(result => console.log(result));
